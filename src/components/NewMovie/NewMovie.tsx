@@ -16,7 +16,9 @@ export const NewMovie = ({ onAdd }: Props) => {
   const [imdbId, setImdbid] = useState('');
   const [description, setDescription] = useState('');
 
-  const isValid = [title, imgUrl, imdbUrl, imdbId].every(v => v.trim() !== '');
+  const isValid = [title, imgUrl, imdbUrl, imdbId].every(
+    value => value.trim() !== '',
+  );
 
   const reset = () => {
     setTitle('');
@@ -26,8 +28,8 @@ export const NewMovie = ({ onAdd }: Props) => {
     setDescription('');
   };
 
-  const heandlerSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const heandlerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     if (isValid) {
       onAdd({
         title: title,
